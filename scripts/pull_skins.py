@@ -84,7 +84,9 @@ for table in tables:
                 n_rows = int(td[1].get("rowspan", "1;").replace(";", ""))
                 data.append(
                     {
-                        "img_link": img_link,
+                        "img_link": img_link.split("/revision/latest")[0]
+                        if img_link
+                        else None,
                         "edition": edition,
                         "skin_name": skin_name,
                         "skin_link": skin_link,
@@ -108,7 +110,9 @@ for table in tables:
                 )
                 data.append(
                     {
-                        "img_link": img_link,
+                        "img_link": img_link.split("/revision/latest")[0]
+                        if img_link
+                        else None,
                         "edition": edition,
                         "skin_name": skin_name,
                         "skin_link": skin_link,

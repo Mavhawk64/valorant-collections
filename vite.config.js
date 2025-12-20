@@ -5,4 +5,15 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
     plugins: [react()],
     base: "/valorant-collections/",
+    server: {
+        watch: {
+            usePolling: true,
+        },
+        hmr: {
+            // This forces the browser to connect back to your WSL IP
+            // instead of 'localhost', which can be finicky in WSL2
+            host: "localhost",
+            protocol: "ws",
+        },
+    },
 });
